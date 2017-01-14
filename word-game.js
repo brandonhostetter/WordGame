@@ -78,6 +78,7 @@ Game.drawAnswers = function() {
 };
 
 Game.drawLetters = function() {
+    Game.letterContext.save();
     Game.letterContext.clearRect(0, 0, Game.canvasWidth, Game.canvasHeight);
     Game.letterContext.font = '48px Lucida Sans Unicode, Lucida Grande, sans-serif';
     Game.letterContext.fillStyle = 'white';
@@ -86,6 +87,22 @@ Game.drawLetters = function() {
     Game.letterContext.beginPath();
     Game.letterContext.arc(Game.canvasWidth / 2, Game.canvasHeight / 2, Game.canvasHeight / 2 - 10, 0, 2 * Math.PI);
     Game.letterContext.stroke();
+
+    let guessCharHeight = Game.letterContext.measureText('w').width / 2;
+    let halfHeight = Game.canvasHeight / 2;
+    let halfWidth = Game.canvasWidth / 2;
+    // top
+    var width = Game.letterContext.measureText(Level.letters[0]).width / 2;
+    Game.letterContext.fillText(Level.letters[0], halfWidth - width, 25 + guessCharHeight);
+    // bottom
+    var width = Game.letterContext.measureText(Level.letters[1]).width / 2;
+    Game.letterContext.fillText(Level.letters[1], halfWidth - width, Game.canvasHeight - guessCharHeight);
+    // left
+    var width = Game.letterContext.measureText(Level.letters[2]).width / 2;
+    Game.letterContext.fillText(Level.letters[2], halfWidth + width - halfHeight, halfHeight + guessCharHeight - 5);
+    // right
+    var width = Game.letterContext.measureText(Level.letters[3]).width / 2;
+    Game.letterContext.fillText(Level.letters[3], halfWidth - width + Game.canvasHeight / 2 - 25, halfHeight + guessCharHeight - 5);
 };
 
 Game.letterCanvasDrag = function() {
