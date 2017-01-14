@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(51, 56, 60, 1);
+}
+
+canvas {
+    display: block;
+}
+
+.answer-canvas {
+    background-color: rgba(51, 56, 60, 1);
+}
+
+.letter-canvas {
+    background-color: rgba(150, 150, 150, 1);
+}
