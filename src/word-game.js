@@ -2,6 +2,8 @@
  * For testing, run python -m SimpleHTTPServer
  * Then go to http://localhost:8000/
  * 
+ * Auto deployment on Firebase setup following https://www.youtube.com/watch?v=QLVzozWDYAs
+ * 
  **/
 
 var Game = {};
@@ -17,7 +19,6 @@ Game.currentLevel = 1;
 Game.isDragging = false;
 
 Game.initialize = function() {
-    console.log('init');
     Game.$answerCanvas = $('#answer-canvas');
     Game.answerContext = Game.$answerCanvas[0].getContext('2d');
     Game.$letterCanvas = $('#letter-canvas');
